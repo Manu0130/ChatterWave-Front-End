@@ -1,7 +1,7 @@
 {
   "name": "chatterwave",
   "version": "1.0.0",
-  "main": "expo/AppEntry.js",
+  "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -12,7 +12,16 @@
     "expo": "~51.0.28",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
-    "react-native": "0.74.5"
+    "react-native": "0.74.5",
+    "expo-font": "~12.0.10",
+    "expo-splash-screen": "~0.27.6",
+    "expo-image-picker": "~15.0.7",
+    "expo-image": "~1.13.0",
+    "@react-native-async-storage/async-storage": "1.23.1",
+    "@expo/vector-icons": "^14.0.3",
+    "@shopify/flash-list": "1.6.4",
+    "expo-linear-gradient": "~13.0.2",
+    "expo-router": "~3.5.23"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
