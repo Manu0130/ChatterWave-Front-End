@@ -1,75 +1,138 @@
-# Chatter Wave - Mobile App (Frontend)
+# Chatterwave - Mobile Client (React Native)
 
-This is the official frontend for the Chatter Wave chat application, built using React Native and Expo. It provides a clean, modern, and cross-platform user experience for seamless communication.
+<p align="center">
+  <img alt="Framework" src="https://img.shields.io/badge/Framework-React%20Native-4630EB.svg?logo=react"/>
+  <img alt="Framework" src="https://img.shields.io/badge/Setup-Expo-4630EB.svg?logo=expo"/>
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg"/>
+</p>
 
-**Note:** This application requires the [Chatter Wave Backend Server](https://github.com/your-username/chatter-wave-backend-repo) to be running and accessible.
+This is the official mobile frontend for **Chatterwave**, a modern and real-time chat application built with React Native and the Expo framework. It communicates with a robust Java backend to deliver a seamless messaging experience.
 
-## Features
+**Backend Repository:** [**Chatterwave-Backend (Java)**](https://github.com/manujayagunathilaka/ChatterWave-Back-End)
 
-* [cite_start]User Sign-Up and Login functionality. [cite: 38]
-* Real-time one-to-one messaging.
-* [cite_start]Ability to select and send images from the device gallery. [cite: 78, 79]
-* A user-friendly interface with custom fonts and design elements.
+<br/>
+
+## Application Screenshots
+
+Welcome to the visual tour of Chatterwave! Below are some key screens showcasing the application's features and user interface.
+
+<p align="center">
+  <img src="./assets/screenshots/01-welcome.png" alt="Welcome Screen" width="250"/>
+  <img src="./assets/screenshots/02-registration.png" alt="Registration Screen" width="250"/>
+  <img src="./assets/screenshots/03-login.png" alt="Login Screen" width="250"/>
+</p>
+<p align="center">
+  <em>Welcome, Registration, and Login Screens</em>
+</p>
+
+<p align="center">
+  <img src="./assets/screenshots/04-home.png" alt="Home (Chat List)" width="250"/>
+  <img src="./assets/screenshots/05-chat.png" alt="Chat Screen" width="250"/>
+  <img src="./assets/screenshots/06-search.png" alt="Search Screen" width="250"/>
+</p>
+<p align="center">
+  <em>Home (Chat List), Chat, and User Search Screens</em>
+</p>
+
+<p align="center">
+  <img src="./assets/screenshots/07-profile.png" alt="Profile Screen" width="250"/>
+</p>
+<p align="center">
+  <em>User Profile Screen</em>
+</p>
+
+<br/>
+
+## Key Features
+
+* **User Authentication:** Secure user registration and login functionality.
+* **Real-Time Chat:** Instantly send and receive text messages.
+* **Conversation Management:** Main screen lists all conversations, with the most recent chat appearing at the top.
+* **User Search:** Easily find and start conversations with other registered users.
+* **Profile Management:** View and update your own profile, including your profile picture using the device's image library.
+* **Modern UI:** A clean and intuitive user interface built with custom fonts, gradients, and optimized images.
+* **Splash Screen:** A professional loading screen while the app initializes.
+
+<br/>
 
 ## Technology Stack
 
-* [cite_start]**Framework:** React Native [cite: 11]
-* [cite_start]**Platform:** Expo [cite: 11]
-* **Libraries Used:**
-    * [cite_start]`@expo/vector-icons` [cite: 44]
-    * [cite_start]`expo-font` [cite: 44]
-    * [cite_start]`expo-splash-screen` [cite: 44]
-    * [cite_start]`expo-linear-gradient` [cite: 68, 69]
-    * [cite_start]`expo-image` [cite: 72, 73]
-    * [cite_start]`expo-image-picker` [cite: 78, 79]
+* **Framework:** React Native
+* **Platform:** Expo (SDK 54)
+* **UI & Components:**
+    * `@expo/vector-icons` (FontAwesome)
+    * `expo-linear-gradient`
+    * `expo-image`
+* **Functionality Modules:**
+    * `expo-font`
+    * `expo-splash-screen`
+    * `expo-image-picker`
+    * `expo-constants` & `expo-linking` (Dependencies for Expo Router)
+    * `react-native-screens` & `react-native-safe-area-context`
+
+<br/>
 
 ## Getting Started
 
-Follow these instructions to get the mobile application running on your local machine for development and testing.
+Follow these instructions to get the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-* Node.js (LTS version)
-* Expo Go application on your Android/iOS device or a configured simulator.
+* Node.js (LTS version recommended)
+* Git version control
+* Expo Go application installed on your physical Android or iOS device.
 
-### Installation and Setup
+### Installation & Setup
 
-1.  **Clone the repository:**
-    ```sh
-    git clone [https://github.com/your-username/chatter-wave-frontend-repo.git](https://github.com/your-username/chatter-wave-frontend-repo.git)
-    cd chatter-wave-frontend-repo
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/your-username/Chatterwave-Front-End.git](https://github.com/your-username/Chatterwave-Front-End.git)
+    cd Chatterwave-Frontend
     ```
 
-2.  **Install dependencies:**
-    ```sh
+2.  **Install Dependencies:**
+    This will install all the required packages from `package.json`.
+    ```bash
     npm install
     ```
-    or if you use Yarn:
-    ```sh
-    yarn install
-    ```
 
-3.  **Configure the Backend URL:**
-    * The backend server must be running and accessible via a URL (e.g., an Ngrok URL).
-    * Locate the API configuration file within the project source code (e.g., `config/api.js` or a similar file).
-    * Update the `BASE_URL` or equivalent constant to the URL of your running backend server.
+3.  **Configure Backend API URL via `.env` file:**
+    This project uses an `.env` file to manage environment variables, making it easy to set the backend URL.
 
-4.  **Run the application:**
-    ```sh
+    * In the root directory of the project, create a file named `.env`.
+    * Add the following line to your new `.env` file. Replace the placeholder URL with the actual public URL provided by your `ngrok` terminal.
+
+        ```env
+        EXPO_PUBLIC_URL="[https://your-unique-id.ngrok-free.app](https://your-unique-id.ngrok-free.app)"
+        ```
+
+    * You can now access this URL anywhere in your application's JavaScript code using `process.env.EXPO_PUBLIC_URL`.
+
+        **Example Usage (e.g., in an api.js file):**
+        ```javascript
+        const API_URL = process.env.EXPO_PUBLIC_URL;
+
+        export const loginUser = async (credentials) => {
+          // Use the API_URL in your fetch call
+          const response = await fetch(`${API_URL}/api/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(credentials),
+          });
+          return response.json();
+        };
+        ```
+    > **Note:** It is standard practice to add your `.env` file to `.gitignore` to prevent sensitive keys from being committed to version control.
+
+4.  **Run the Application:**
+    Start the Metro development server.
+    ```bash
     npx expo start
     ```
+    Scan the QR code shown in the terminal with your phone's camera or the Expo Go app.
 
-5.  **Launch the App:**
-    * Scan the QR code generated in the terminal using the Expo Go app on your mobile phone.
-    * Alternatively, you can run the app on a connected simulator by selecting the appropriate option in the terminal.
-
-## Project Structure
-
-* [cite_start]`assets/`: Contains static assets like fonts, and images. [cite: 45]
-* `components/`: Reusable UI components used throughout the application.
-* `screens/`: Main screen components of the application (e.g., LoginScreen, ChatScreen).
-* `App.js`: The main entry point of the application.
+<br/>
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](./LICENSE.md). See the LICENSE.md file for details.
