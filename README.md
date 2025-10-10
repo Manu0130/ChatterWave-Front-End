@@ -66,6 +66,7 @@ Welcome to the visual tour of Chatterwave! Below are some key screens showcasing
 
 * **User Authentication:** Secure user registration and login functionality.
 * **Real-Time Chat:** Instantly send and receive text messages.
+* **Presence Indicators:** Visually displays whether other users are currently online or offline.
 * **Conversation Management:** Main screen lists all conversations, with the most recent chat appearing at the top.
 * **User Search:** Easily find and start conversations with other registered users.
 * **Profile Management:** View and update user profiles. The app requests permissions for **Camera and Image Gallery access**, allowing users to capture a new photo or select an existing one for their profile picture.
@@ -152,6 +153,6 @@ Follow these instructions to get the project up and running on your local machin
 
 <br/>
 
-## 📄 License
+## License
 
 This project is licensed under the [MIT License](./LICENSE.md). See the `LICENSE.md` file for details.
