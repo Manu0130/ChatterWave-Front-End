@@ -1,6 +1,7 @@
 import { registerRootComponent } from "expo";
 import { LinearGradient } from "expo-linear-gradient";
-import { Alert, Animated, AppState, Button, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Alert, Animated, AppState, Button, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 import { useEffect, useState, useRef } from "react";

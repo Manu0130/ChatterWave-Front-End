@@ -7,7 +7,9 @@ import { router, SplashScreen, useLocalSearchParams } from 'expo-router';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
-import { Alert, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Alert, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 
@@ -46,12 +48,12 @@ export default function profile() {
             try {
                 const response = await fetch(imageUrl);
                 if (response.status === 200) {
-                    setImageExists(true); 
+                    setImageExists(true);
                 } else {
-                    setImageExists(false); 
+                    setImageExists(false);
                 }
             } catch (error) {
-                setImageExists(false); 
+                setImageExists(false);
             }
         };
 
@@ -62,93 +64,96 @@ export default function profile() {
         return null;
     }
 
+
     return (
-        <View style={stylesheet.mainView}>
 
-            <StatusBar backgroundColor="#f57c00" />
+        <SafeAreaView style={{ flex: 1 }}>
 
-            <View style={stylesheet.header}>
-                <Pressable onPress={
-                    () => router.back()
-                }>
-                    <FontAwesome6 name={"arrow-left"} color={"black"} size={20} />
-                </Pressable>
-                <View style={stylesheet.headerSub}>
-                    <Text style={stylesheet.headerText}>{firstName}'s Profile</Text>
-                </View>
-            </View>
+                <StatusBar backgroundColor="#f57c00" />
 
-            <ScrollView style={{ padding: 20 }}>
-                <View style={stylesheet.scroll}>
-                    <Pressable>
-                        {
-                            imageExists  ?
-                                <Image contentFit="cover" source={{ uri: `${process.env.EXPO_PUBLIC_URL}/ChatterWave/AvatarImages/${item.other_user_mobile}.png` }} style={stylesheet.profileImage} />
-                                :
-                                <Image source={avatarImage} style={stylesheet.profileImage} />
-
-                        }
-                        <View style={stylesheet.imgIcon}>
-                            <FontAwesome6 name={"camera"} color={"#f57c00"} size={32} />
-                        </View>
+                <View style={stylesheet.header}>
+                    <Pressable onPress={
+                        () => router.back()
+                    }>
+                        <FontAwesome6 name={"arrow-left"} color={"black"} size={20} />
                     </Pressable>
+                    <View style={stylesheet.headerSub}>
+                        <Text style={stylesheet.headerText}>{firstName}'s Profile</Text>
+                    </View>
                 </View>
-                <View>
-                    <Text style={stylesheet.textTitle}>Mobile</Text>
-                    <View style={stylesheet.textView}>
-                        <TextInput value={item.other_user_mobile} />
-                    </View>
 
-                    <Text style={stylesheet.textTitle}>First Name</Text>
-                    <View style={stylesheet.textView}>
-                        <TextInput value={firstName} />
-                    </View>
-
-                    <Text style={stylesheet.textTitle}>Last Name</Text>
-                    <View style={stylesheet.textView}>
-                        <TextInput value={lastName} />
-                    </View>
-
-                    <Pressable style={stylesheet.logoutBtn} onPress={async () => {
-
-                        Alert.alert(
-                            "Sign Out", "Are you sure do you want to Sign Out from your account ?",
-                            [{
-                                text: "yes",
-                                onPress: async () => {
-                                    console.log("delete")
-                                    try {
-                                        
-                                        await AsyncStorage.removeItem("user");
-
-                                        router.replace("/signin");
-                                    } catch (e) {
-                                        console.log(e);
-                                        Alert.alert("Error", "Failed to sign out.");
-                                    }
-                                }
-                            },
+                <ScrollView style={{ padding: 20 }}>
+                    <View style={stylesheet.scroll}>
+                        <Pressable>
                             {
-                                text: "no",
-                                onPress: () => {
-                                    console.log("nothing")
-                                }
-                            }],
-                            {
-                                cancelable: true 
+                                imageExists ?
+                                    <Image contentFit="cover" source={{ uri: `${process.env.EXPO_PUBLIC_URL}/ChatterWave/AvatarImages/${item.other_user_mobile}.png` }} style={stylesheet.profileImage} />
+                                    :
+                                    <Image source={avatarImage} style={stylesheet.profileImage} />
+
                             }
-                        )
+                            <View style={stylesheet.imgIcon}>
+                                <FontAwesome6 name={"camera"} color={"#f57c00"} size={32} />
+                            </View>
+                        </Pressable>
+                    </View>
+                    <View>
+                        <Text style={stylesheet.textTitle}>Mobile</Text>
+                        <View style={stylesheet.textView}>
+                            <TextInput value={item.other_user_mobile} />
+                        </View>
 
-                    }}>
+                        <Text style={stylesheet.textTitle}>First Name</Text>
+                        <View style={stylesheet.textView}>
+                            <TextInput value={firstName} />
+                        </View>
 
-                        <Text style={{ color: '#fff', fontSize: 20, fontFamily: "Fredoka-Regular" }}>Sign Out</Text>
-                        <FontAwesome6 name={"power-off"} color={"white"} size={18} />
-                    </Pressable>
-                </View>
+                        <Text style={stylesheet.textTitle}>Last Name</Text>
+                        <View style={stylesheet.textView}>
+                            <TextInput value={lastName} />
+                        </View>
+
+                        <Pressable style={stylesheet.logoutBtn} onPress={async () => {
+
+                            Alert.alert(
+                                "Sign Out", "Are you sure do you want to Sign Out from your account ?",
+                                [{
+                                    text: "yes",
+                                    onPress: async () => {
+                                        console.log("delete")
+                                        try {
+
+                                            await AsyncStorage.removeItem("user");
+
+                                            router.replace("/signin");
+                                        } catch (e) {
+                                            console.log(e);
+                                            Alert.alert("Error", "Failed to sign out.");
+                                        }
+                                    }
+                                },
+                                {
+                                    text: "no",
+                                    onPress: () => {
+                                        console.log("nothing")
+                                    }
+                                }],
+                                {
+                                    cancelable: true
+                                }
+                            )
+
+                        }}>
+
+                            <Text style={{ color: '#fff', fontSize: 20, fontFamily: "Fredoka-Regular" }}>Sign Out</Text>
+                            <FontAwesome6 name={"power-off"} color={"white"} size={18} />
+                        </Pressable>
+                    </View>
 
 
-            </ScrollView>
-        </View>
+                </ScrollView>
+            
+        </SafeAreaView>
     );
 
 

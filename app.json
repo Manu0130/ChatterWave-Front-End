@@ -2,7 +2,7 @@
   "expo": {
     "name": "ChatterWave",
     "slug": "ChatterWave",
-    "scheme": "ChatterWave",
+    "scheme": "chatterwave",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/chatIcon.png",
@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/chatIcon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.manujaya_30.ChatterWave"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -27,6 +28,12 @@
     "plugins": [
       "expo-font",
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "3f78f90d-89fa-4124-8c34-782c52311a4d"
+      }
+    }
   }
 }

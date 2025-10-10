@@ -3,7 +3,8 @@ import { Image } from "expo-image";
 import { router, SplashScreen } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import { Button, Pressable, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button, Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import FadeWrapper from "./FadeWrapper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 

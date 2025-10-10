@@ -9,7 +9,8 @@ import CustomAlert from "./CustomAlert";
 import SuccessModal from "./SuccessModal";
 import RemoveImgSuccessModal from "./RemoveImgSuccessModal";
 
-import { Alert, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View, Modal } from "react-native";
+import { Alert, Pressable, ScrollView, StyleSheet, Text, TextInput, View, Modal } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 
@@ -66,6 +67,7 @@ export default function profileUpdate() {
             Alert.alert("Error", "Failed to sign out.");
         }
     };
+
 
     const [loaded, error] = useFonts(
         {
@@ -248,6 +250,8 @@ export default function profileUpdate() {
 
 
     return (
+
+        
         <View style={stylesheet.mainView}>
 
             <StatusBar backgroundColor="#f57c00" />
