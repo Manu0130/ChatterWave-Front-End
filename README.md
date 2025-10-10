@@ -1,14 +1,14 @@
 # Chatterwave - Mobile Client (React Native)
 
 <p align="center">
-  <img alt="Framework" src="https://img.shields.io/badge/Framework-React%20Native-4630EB.svg?logo=react"/>
-  <img alt="Framework" src="https://img.shields.io/badge/Setup-Expo-4630EB.svg?logo=expo"/>
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg"/>
+  <img alt="Framework" src="https://img.shields.io/badge/Framework-React%20Native-4630EB.svg?logo=react"/>
+  <img alt="Framework" src="https://img.shields.io/badge/Setup-Expo-4630EB.svg?logo=expo"/>
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg"/>
 </p>
 
 This is the official mobile frontend for **Chatterwave**, a modern and real-time chat application built with React Native and the Expo framework. It communicates with a robust Java backend to deliver a seamless messaging experience.
 
-**Backend Repository:** [**Chatterwave-Backend (Java)**](https://github.com/manujayagunathilaka/ChatterWave-Back-End)
+➡️ **Backend Repository:** [**Chatterwave-Backend (Java)**](https://github.com/manujayagunathilaka/ChatterWave-Back-End)
 
 <br/>
 
@@ -16,30 +16,49 @@ This is the official mobile frontend for **Chatterwave**, a modern and real-time
 
 Welcome to the visual tour of Chatterwave! Below are some key screens showcasing the application's features and user interface.
 
-<p align="center">
-  <img src="./assets/screenshots/01-welcome.png" alt="Welcome Screen" width="250"/>
-  <img src="./assets/screenshots/02-registration.png" alt="Registration Screen" width="250"/>
-  <img src="./assets/screenshots/03-login.png" alt="Login Screen" width="250"/>
-</p>
-<p align="center">
-  <em>Welcome, Registration, and Login Screens</em>
-</p>
-
-<p align="center">
-  <img src="./assets/screenshots/04-home.png" alt="Home (Chat List)" width="250"/>
-  <img src="./assets/screenshots/05-chat.png" alt="Chat Screen" width="250"/>
-  <img src="./assets/screenshots/06-search.png" alt="Search Screen" width="250"/>
-</p>
-<p align="center">
-  <em>Home (Chat List), Chat, and User Search Screens</em>
-</p>
-
-<p align="center">
-  <img src="./assets/screenshots/07-profile.png" alt="Profile Screen" width="250"/>
-</p>
-<p align="center">
-  <em>User Profile Screen</em>
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <img src="./docs/screenshots/01-welcome.png" alt="Welcome Screen" width="250"/>
+      <br />
+      <sub><b>Welcome Screen</b></sub>
+    </td>
+    <td align="center">
+      <img src="./docs/screenshots/02-registration.png" alt="Registration Screen" width="250"/>
+      <br />
+      <sub><b>Registration Screen</b></sub>
+    </td>
+    <td align="center">
+      <img src="./docs/screenshots/03-login.png" alt="Login Screen" width="250"/>
+      <br />
+      <sub><b>Login Screen</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./docs/screenshots/04-home.png" alt="Home (Chat List)" width="250"/>
+      <br />
+      <sub><b>Home (Chat List)</b></sub>
+    </td>
+    <td align="center">
+      <img src="./docs/screenshots/05-chat.png" alt="Chat Screen" width="250"/>
+      <br />
+      <sub><b>Chat Screen</b></sub>
+    </td>
+    <td align="center">
+      <img src="./docs/screenshots/06-search.png" alt="Search Screen" width="250"/>
+      <br />
+      <sub><b>Search Screen</b></sub>
+    </td>
+  </tr>
+   <tr>
+    <td align="center" colspan="3">
+      <img src="./docs/screenshots/07-profile.png" alt="Profile Screen" width="250"/>
+      <br />
+      <sub><b>User Profile Screen</b></sub>
+    </td>
+  </tr>
+</table>
 
 <br/>
 
@@ -49,7 +68,7 @@ Welcome to the visual tour of Chatterwave! Below are some key screens showcasing
 * **Real-Time Chat:** Instantly send and receive text messages.
 * **Conversation Management:** Main screen lists all conversations, with the most recent chat appearing at the top.
 * **User Search:** Easily find and start conversations with other registered users.
-* **Profile Management:** View and update your own profile, including your profile picture using the device's image library.
+* **Profile Management:** View and update user profiles. The app requests permissions for **Camera and Image Gallery access**, allowing users to capture a new photo or select an existing one for their profile picture.
 * **Modern UI:** A clean and intuitive user interface built with custom fonts, gradients, and optimized images.
 * **Splash Screen:** A professional loading screen while the app initializes.
 
@@ -133,6 +152,6 @@ Follow these instructions to get the project up and running on your local machin
 
 <br/>
 
-## License
+## 📄 License
 
-This project is licensed under the [MIT License](./LICENSE.md). See the LICENSE.md file for details.
+This project is licensed under the [MIT License](./LICENSE.md). See the `LICENSE.md` file for details.
